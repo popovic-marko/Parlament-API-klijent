@@ -139,6 +139,15 @@ public class PoslaniciGUI extends JFrame {
 	private JButton getBtnUpdateMembers() {
 		if (btnUpdateMembers == null) {
 			btnUpdateMembers = new JButton("Update members");
+			btnUpdateMembers.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					try {
+						GUIKontroler.sacuvajIzmenjenePoslanike(tabelaPoslanici, taStatus);
+					} catch (IOException e1) {
+						JOptionPane.showMessageDialog(getContentPane(), "Greska prilikom cuvanja izmenjenih podataka.", "Greska", JOptionPane.ERROR_MESSAGE);
+					}
+				}
+			});
 			btnUpdateMembers.setPreferredSize(new Dimension(145, 23));
 		}
 		return btnUpdateMembers;

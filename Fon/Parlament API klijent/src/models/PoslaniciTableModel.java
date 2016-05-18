@@ -98,4 +98,8 @@ public class PoslaniciTableModel extends AbstractTableModel{
 		this.poslanici = poslanici;
 		fireTableDataChanged();
 	}
+	
+	public LinkedList<Poslanik> vratiPoslanike(){
+		return (LinkedList<Poslanik>) poslanici;
+	}
 }

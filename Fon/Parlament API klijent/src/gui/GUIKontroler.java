@@ -81,6 +81,21 @@ public class GUIKontroler {
 		
 		textArea.append("Tabela je popunjena podacima preuzetim sa servisa. \n");
 	}
+
+
+	public static void sacuvajIzmenjenePoslanike(JTable tabela, JTextArea taStatus) throws IOException {
+		PoslaniciTableModel model = (PoslaniciTableModel) tabela.getModel();
+		LinkedList<Poslanik> poslanici = model.vratiPoslanike();
+		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		BufferedWriter out = new BufferedWriter(new FileWriter("data/updatedMembers.json"));
+		
+		out.write(gson.toJson(poslanici));
+		
+		out.close();
+		
+		taStatus.append("Izmenjeni podaci su sacuvani. \n");
+	}
 	
 
 }
