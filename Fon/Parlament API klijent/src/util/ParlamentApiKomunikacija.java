@@ -25,7 +25,7 @@ public class ParlamentApiKomunikacija {
 	private static final String urlServisa = "http://147.91.128.71:9090/parlament/api/members";
 	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 	
-	public List<Poslanik> vratiPoslanike() throws IOException, ParseException{
+	public static List<Poslanik> vratiPoslanike() throws IOException, ParseException{
 		
 		String rezultat = sendGet(urlServisa);
 		Gson gson = new GsonBuilder().create();
@@ -53,7 +53,7 @@ public class ParlamentApiKomunikacija {
 		return poslanici;
 	}
 	
-	private String sendGet(String stringUrl) throws IOException{
+	private static String sendGet(String stringUrl) throws IOException{
 		
 		URL url = new URL(stringUrl);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();

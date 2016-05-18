@@ -33,7 +33,7 @@ public class Poslanik {
 		return ime;
 	}
 	
-	public void setIme(String ime) {
+	public void setIme(String ime){
 		this.ime = ime;
 	}
 	
@@ -52,7 +52,7 @@ public class Poslanik {
 	public void setDatumRodjenja(Date datumRodjenja) {
 		this.datumRodjenja = datumRodjenja;
 	}
-
+	
 	public String getMestoRodjenja() {
 		return mestoRodjenja;
 	}

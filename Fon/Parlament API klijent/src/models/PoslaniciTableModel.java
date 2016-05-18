@@ -67,21 +67,31 @@ public class PoslaniciTableModel extends AbstractTableModel{
 		switch (columnIndex) {
 		case 0: break;
 
-		case 1: p.setIme(aValue.toString());
-		break;
+		case 1: if(aValue.toString().equals("")){
+					JOptionPane.showMessageDialog(null, "Greska prilikom unosa imena.", "Greska", JOptionPane.ERROR_MESSAGE);
+				}else{
+					p.setIme(aValue.toString());
+				}
+				break;
 
-		case 2: p.setPrezime(aValue.toString());
-		break;
+		case 2: if(aValue.toString().equals("")){
+					JOptionPane.showMessageDialog(null, "Greska prilikom unosa prezimena.", "Greska", JOptionPane.ERROR_MESSAGE);
+				}else{
+					p.setPrezime(aValue.toString());
+				}
+				break;
 
 		case 3: try {
-			p.setDatumRodjenja(new SimpleDateFormat("dd.MM.yyyy").parse(aValue.toString()));
-		} catch (ParseException e) {
-			JOptionPane.showMessageDialog(null, "Greska prilikom unosa datuma.", "Greska", JOptionPane.ERROR_MESSAGE);
+					p.setDatumRodjenja(new SimpleDateFormat("dd.MM.yyyy").parse(aValue.toString()));
+				} catch (ParseException e) {
+					JOptionPane.showMessageDialog(null, "Greska prilikom unosa datuma.", "Greska", JOptionPane.ERROR_MESSAGE);
+				}
+				break;
 		}
-		break;
-
-		default:
-			break;
-		}
+	}
+	
+	public void staviPoslanikeUModel(List<Poslanik> poslanici){
+		this.poslanici = poslanici;
+		fireTableDataChanged();
 	}
 }

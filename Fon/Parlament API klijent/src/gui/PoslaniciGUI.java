@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
@@ -19,6 +20,10 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.text.ParseException;
+import java.awt.event.ActionEvent;
 
 public class PoslaniciGUI extends JFrame {
 
@@ -100,6 +105,17 @@ public class PoslaniciGUI extends JFrame {
 	private JButton getBtnGetMember() {
 		if (btnGetMember == null) {
 			btnGetMember = new JButton("GET members\r\n");
+			btnGetMember.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					try {
+						GUIKontroler.preuzmiPoslanike(taStatus);
+					} catch (IOException e1) {
+						JOptionPane.showMessageDialog(getContentPane(), "Greska prilikom uspostavljenja konekcije sa serverom.", "Greska", JOptionPane.ERROR_MESSAGE);
+					} catch (ParseException e1) {
+						JOptionPane.showMessageDialog(getContentPane(), "Greska prilikom uspostavljenja preuzimanja datuma.", "Greska", JOptionPane.ERROR_MESSAGE);
+					}
+				}
+			});
 			btnGetMember.setPreferredSize(new Dimension(145, 23));
 		}
 		return btnGetMember;
@@ -107,6 +123,15 @@ public class PoslaniciGUI extends JFrame {
 	private JButton getBtnFillTable() {
 		if (btnFillTable == null) {
 			btnFillTable = new JButton("Fill table");
+			btnFillTable.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					try {
+						GUIKontroler.ucitajPoslanikeIzJson(tabelaPoslanici, taStatus);
+					} catch (Exception e1) {
+						JOptionPane.showMessageDialog(getContentPane(), "Greska prilikom ucitavanja poslanika.", "Greska", JOptionPane.ERROR_MESSAGE);
+					}
+				}
+			});
 			btnFillTable.setPreferredSize(new Dimension(145, 23));
 		}
 		return btnFillTable;
