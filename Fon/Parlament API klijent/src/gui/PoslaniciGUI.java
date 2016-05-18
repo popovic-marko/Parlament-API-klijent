@@ -64,7 +64,7 @@ public class PoslaniciGUI extends JFrame {
 	private JTable getTabelaPoslanici() {
 		if (tabelaPoslanici == null) {
 			tabelaPoslanici = new JTable();
-			tabelaPoslanici.setModel(new PoslaniciTableModel(GUIKontroler.vratiSvePoslanike()));
+			tabelaPoslanici.setModel(new PoslaniciTableModel());
 		}
 		return tabelaPoslanici;
 	}

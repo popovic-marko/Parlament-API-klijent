@@ -2,7 +2,8 @@
   {
     "id": 12411,
     "name": "Dragan",
-    "lastName": "Aćimović"
+    "lastName": "Aćimović",
+    "birthDate": "Feb 2, 2222 12:00:00 AM"
   },
   {
     "id": 189778,
@@ -19,7 +20,8 @@
   {
     "id": 75049,
     "name": "Borjan",
-    "lastName": "Agatonović"
+    "lastName": "Agatonović",
+    "birthDate": "May 5, 5555 12:00:00 AM"
   },
   {
     "id": 18597,

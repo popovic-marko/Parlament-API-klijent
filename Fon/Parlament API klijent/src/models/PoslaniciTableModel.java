@@ -16,8 +16,7 @@ public class PoslaniciTableModel extends AbstractTableModel{
 	private String[] kolone = new String[]{"ID", "Name", "Last name", "Birth date"};
 	private List<Poslanik> poslanici = new LinkedList<>();
 
-	public PoslaniciTableModel(List<Poslanik> poslanici) {
-		this.poslanici = poslanici;
+	public PoslaniciTableModel() {
 	}
 	
 	@Override

@@ -60,18 +60,7 @@ public class ParlamentApiKomunikacija {
 		connection.setRequestMethod("GET");
 		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-		
-//		boolean kraj = false;
-//		String odgovor = "";
-//		while(!kraj){
-//			String s = reader.readLine();
-//			if(s != null){
-//				odgovor += s;
-//			}else{
-//				kraj = true;
-//			}
-//		}
-//		reader.close();
+
 		String odgovor = "";
 		String linija;
 		while( (linija = reader.readLine()) != null){

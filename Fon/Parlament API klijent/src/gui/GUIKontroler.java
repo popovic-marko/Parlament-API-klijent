@@ -20,21 +20,18 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 
 import domain.Poslanik;
-import domain.Skupstina;
 import models.PoslaniciTableModel;
 import util.ParlamentApiKomunikacija;
 import util.PoslaniciJsonUtility;
 
 public class GUIKontroler {
 
-	private static Skupstina skupstina;
 	private static PoslaniciGUI poslaniciGUI;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					skupstina = new Skupstina();
 					poslaniciGUI = new PoslaniciGUI();
 					poslaniciGUI.setVisible(true);
 				} catch (Exception e) {
@@ -43,12 +40,6 @@ public class GUIKontroler {
 			}
 		});
 	}
-	
-	
-	public static List<Poslanik> vratiSvePoslanike(){
-		return skupstina.vratiSvePoslanike();
-	}
-
 
 	public static void preuzmiPoslanike(JTextArea taStatus) throws IOException, ParseException {
 		List<Poslanik> poslanici = ParlamentApiKomunikacija.vratiPoslanike();
@@ -63,7 +54,6 @@ public class GUIKontroler {
 		
 		taStatus.append("Poslanici su preuzeti sa servisa. \n");
 	}
-
 
 	public static void ucitajPoslanikeIzJson(JTable tabela, JTextArea textArea) throws Exception {
 		BufferedReader in = new BufferedReader(new FileReader("data/serviceMembers.json"));
@@ -82,7 +72,6 @@ public class GUIKontroler {
 		textArea.append("Tabela je popunjena podacima preuzetim sa servisa. \n");
 	}
 
-
 	public static void sacuvajIzmenjenePoslanike(JTable tabela, JTextArea taStatus) throws IOException {
 		PoslaniciTableModel model = (PoslaniciTableModel) tabela.getModel();
 		LinkedList<Poslanik> poslanici = model.vratiPoslanike();
@@ -96,6 +85,4 @@ public class GUIKontroler {
 		
 		taStatus.append("Izmenjeni podaci su sacuvani. \n");
 	}
-	
-
 }
