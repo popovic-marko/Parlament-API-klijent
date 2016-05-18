@@ -61,7 +61,7 @@ public class GUIKontroler {
 
 		out.close();
 		
-		taStatus.append("Poslanici su preuzeti sa servisa. /n");
+		taStatus.append("Poslanici su preuzeti sa servisa. \n");
 	}
 
 
@@ -79,7 +79,7 @@ public class GUIKontroler {
 		PoslaniciTableModel model = (PoslaniciTableModel) tabela.getModel();
 		model.staviPoslanikeUModel(listaPoslanika);
 		
-		textArea.append("Tabela je popunjena podacima preuzetim sa servisa. /n");
+		textArea.append("Tabela je popunjena podacima preuzetim sa servisa. \n");
 	}
 	
 

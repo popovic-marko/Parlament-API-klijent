@@ -41,7 +41,11 @@ public class PoslaniciTableModel extends AbstractTableModel{
 		case 2: 
 			return p.getPrezime();
 		case 3: 
-			return p.getDatumRodjenja();
+			Date d = p.getDatumRodjenja();
+			if(d == null)
+				return d;
+			else 
+				return new SimpleDateFormat("dd.MM.yyyy").format(d);
 		default:
 			return "N/A";
 		}
